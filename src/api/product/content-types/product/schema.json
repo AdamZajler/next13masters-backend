@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Products",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "type": "float",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "enumeration",
+      "enum": [
+        "cap",
+        "t-shirt"
+      ],
+      "required": true,
+      "default": "t-shirt"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "colors": {
+      "type": "customField",
+      "options": [
+        "red",
+        "blue",
+        "black",
+        "grey",
+        "yellow",
+        "green",
+        "pink"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "size": {
+      "type": "customField",
+      "options": [
+        "xxs",
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl",
+        "xxl",
+        "xxxl"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    }
+  }
+}
