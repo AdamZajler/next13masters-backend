@@ -735,6 +735,9 @@ export interface ApiCollectionCollection extends Schema.CollectionType {
       'oneToMany',
       'api::product.product'
     >;
+    slug: Attribute.UID<'api::collection.collection', 'title'> &
+      Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
