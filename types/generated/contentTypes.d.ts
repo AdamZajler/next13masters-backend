@@ -683,12 +683,13 @@ export interface ApiCartItemCartItem extends Schema.CollectionType {
     singularName: 'cart-item';
     pluralName: 'cart-items';
     displayName: 'CartItem';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
-    products: Attribute.Relation<
+    product: Attribute.Relation<
       'api::cart-item.cart-item',
       'oneToOne',
       'api::product.product'
