@@ -39,7 +39,8 @@
       "type": "enumeration",
       "enum": [
         "cap",
-        "t-shirt"
+        "t-shirt",
+        "t-shirts"
       ],
       "required": true,
       "default": "t-shirt"

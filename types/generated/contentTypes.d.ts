@@ -773,7 +773,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     description: Attribute.Text & Attribute.Required;
     price: Attribute.Float & Attribute.Required;
     images: Attribute.Media & Attribute.Required;
-    categories: Attribute.Enumeration<['cap', 't-shirt']> &
+    categories: Attribute.Enumeration<['cap', 't-shirt', 't-shirts']> &
       Attribute.Required &
       Attribute.DefaultTo<'t-shirt'>;
     slug: Attribute.UID<'api::product.product', 'title'>;
