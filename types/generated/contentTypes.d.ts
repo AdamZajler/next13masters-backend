@@ -717,6 +717,74 @@ export interface ApiCartItemCartItem extends Schema.CollectionType {
   };
 }
 
+export interface ApiCollectionCollection extends Schema.CollectionType {
+  collectionName: 'collections';
+  info: {
+    singularName: 'collection';
+    pluralName: 'collections';
+    displayName: 'Collection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    products: Attribute.Relation<
+      'api::collection.collection',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::collection.collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::collection.collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCollectionAllCollectionAll extends Schema.CollectionType {
+  collectionName: 'collections_all';
+  info: {
+    singularName: 'collection-all';
+    pluralName: 'collections-all';
+    displayName: 'Collections';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    collections: Attribute.Relation<
+      'api::collection-all.collection-all',
+      'oneToMany',
+      'api::collection.collection'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::collection-all.collection-all',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::collection-all.collection-all',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Schema.CollectionType {
   collectionName: 'orders';
   info: {
@@ -865,6 +933,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::cart-item.cart-item': ApiCartItemCartItem;
+      'api::collection.collection': ApiCollectionCollection;
+      'api::collection-all.collection-all': ApiCollectionAllCollectionAll;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::review.review': ApiReviewReview;

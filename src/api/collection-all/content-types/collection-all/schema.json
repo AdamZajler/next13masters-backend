@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collections_all",
+  "info": {
+    "singularName": "collection-all",
+    "pluralName": "collections-all",
+    "displayName": "Collections"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "collections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::collection.collection"
+    }
+  }
+}
