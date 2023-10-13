@@ -810,6 +810,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'oneToMany',
       'api::cart-item.cart-item'
     >;
+    email: Attribute.Email & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
