@@ -860,7 +860,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
         ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']
       >;
     reviews_avg: Attribute.Decimal &
-      Attribute.Required &
       Attribute.SetMinMax<{
         min: 0;
         max: 5;
