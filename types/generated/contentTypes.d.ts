@@ -859,6 +859,13 @@ export interface ApiProductProduct extends Schema.CollectionType {
         'plugin::multi-select.multi-select',
         ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']
       >;
+    reviews_avg: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+        max: 5;
+      }> &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
